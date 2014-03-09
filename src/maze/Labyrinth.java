@@ -6,10 +6,10 @@ import chars.Hero;
 import java.util.Random;
 
 public class Labyrinth{
-    Hero heman = new Hero();
-    Dragon lizzy = new Dragon();
-    Cell[][] map = new Cell[10][10];
-    /* TEST MAZE
+    Hero heman = new Hero('H', 1, 1);
+    Dragon lizzy = new Dragon('D', 1, 3);
+    //Cell[][] map = new Cell[10][10];
+    // TEST MAZE
     char[][] map = {
             {'X','X','X','X','X','X','X','X','X','X'},
             {'X',' ',' ',' ',' ',' ',' ',' ',' ','X'},
@@ -20,8 +20,9 @@ public class Labyrinth{
             {'X',' ','X','X',' ','X',' ','X',' ','X'},
             {'X',' ','X','X',' ','X',' ','X',' ','X'},
             {'X','E','X','X',' ',' ',' ',' ',' ','X'},
-            {'X','X','X','X','X','X','X','X','X','X'}};*/
+            {'X','X','X','X','X','X','X','X','X','X'}};
 
+    /*
     //MAZE GENERATION FUNCTIONS
 
     public void generateOuterWalls(){
@@ -58,7 +59,7 @@ public class Labyrinth{
                 map[map.length - 1][rand4].representation = 'S';
         }
     }
-/*
+
     //TODO: complete this, obviously
     void generateWalls(){
         Stack cellStack;
@@ -69,148 +70,146 @@ public class Labyrinth{
 */
     //END OF MAZE GENERATION FUNCTIONS
 
+    //TODO: optimize this. Print movables over map. No need for so much innefective checking
     public void print(){
         for(int i = 0; i < 10; i++){
             for(int j = 0; j < 10; j++){
-                if(i == heman.posy && j == heman.posx)
-                    System.out.print(heman.representation);
-                else if(i == lizzy.posy && j == lizzy.posx)
-                    System.out.print(lizzy.representation);
+                if(i == heman.getPosY() && j == heman.getPosX())
+                    System.out.print(heman.getRep());
+                else if(i == lizzy.getPosY() && j == lizzy.getPosX())
+                    System.out.print(lizzy.getRep());
                 else
-                    System.out.print(map[i][j].representation);
+                    System.out.print(map[i][j]);
             }
             System.out.println();
         }
     }
 
+    //moves Hero in 'direction'
     public void moveHero(String direction){
-        if(direction.equals("up") && checkPassable(heman.posx, heman.posy - 1))
-            heman.posy--;
-        else if(direction.equals("down") && checkPassable(heman.posx, heman.posy + 1))
-            heman.posy++;
-        else if(direction.equals("left") && checkPassable(heman.posx - 1, heman.posy))
-            heman.posx--;
-        else if(direction.equals("right") && checkPassable(heman.posx + 1, heman.posy))
-            heman.posx++;
+        if(direction.equals("up") && checkPassable(heman.getPosX(), heman.getPosY() - 1))
+            heman.move(direction);
+        else if(direction.equals("down") && checkPassable(heman.getPosX(), heman.getPosY() + 1))
+            heman.move(direction);
+        else if(direction.equals("left") && checkPassable(heman.getPosX() - 1, heman.getPosY()))
+            heman.move(direction);
+        else if(direction.equals("right") && checkPassable(heman.getPosX() + 1, heman.getPosY()))
+            heman.move(direction);
         else
             System.out.println("Command not found/Unpassable block!");
     }
 
-    public void moveDragon(){
+    //moves every dragon
+    public void moveDragons(){
         Random rand = new Random();
         int rand2 = rand.nextInt(5);
         switch(rand2){
             case 0:
                 break;
             case 1:
-                if(checkPassable(lizzy.posx, lizzy.posy - 1))
-                    lizzy.posy--;
+                if(checkPassable(lizzy.getPosX(), lizzy.getPosY() - 1))
+                    lizzy.move("up");
                 break;
             case 2:
-                if(checkPassable(lizzy.posx, lizzy.posy + 1))
-                    lizzy.posy++;
+                if(checkPassable(lizzy.getPosX(), lizzy.getPosY() + 1))
+                    lizzy.move("down");
                 break;
             case 3:
-                if(checkPassable(lizzy.posx -1, lizzy.posy))
-                    lizzy.posx--;
+                if(checkPassable(lizzy.getPosX() - 1, lizzy.getPosY()))
+                    lizzy.move("left");
                 break;
             case 4:
-                if(checkPassable(lizzy.posx + 1, lizzy.posy))
-                    lizzy.posx++;
+                if(checkPassable(lizzy.getPosX() + 1, lizzy.getPosY()))
+                    lizzy.move("right");
                 break;
         }
     }
 
-    boolean checkPassable(int x, int y){
-        if(heman.representation == 'A'){
-            if(map[y][x].representation == 'X')
-                return false;
-            else
-                return true;
+    //returns true if Hero can pass through block in position (x, y)
+    private boolean checkPassable(int x, int y){
+        if(heman.isArmed()){
+            return !(map[y][x] == 'X');
         } else {
-            if(map[y][x].representation == 'X' || map[y][x].representation == 'S')
-                return false;
-            else
-                return true;
+            return !(map[y][x] == 'X' || map[y][x] == 'S');
         }
     }
 
+    //arms Hero once his position matches the sword's
     public void checkWeapon(){
         int weaponx = -1;
         int weapony = -1;
         for(int i = 0; i < 10; i++){
             for(int j = 0; j < 10; j++){
-                if(map[i][j].representation == 'E'){
+                if(map[i][j] == 'E'){
                     weaponx = j;
                     weapony = i;
                 }
             }
         }
-        if(weaponx == heman.posx && weapony == heman.posy){
-            heman.representation = 'A';
-            map[weapony][weaponx].representation = ' ';
+        if(weaponx == heman.getPosX() && weapony == heman.getPosY()){
+            heman.arm();
+            map[weapony][weaponx] = ' '; //TODO: This won't do. We need a Sword class as a GameObject
         }
-        if(weaponx == lizzy.posx && weapony == lizzy.posy && map[weapony][weaponx].representation == 'E'){
-            lizzy.representation = 'F';
+        if(weaponx == lizzy.getPosX() && weapony == lizzy.getPosY() && map[weapony][weaponx] == 'E'){
+            lizzy.setRep('F');
         } else {
-            lizzy.representation = 'D';
+            lizzy.setRep('D');
         }
     }
 
+    //kills dragons in adjacent blocks if Hero is armed
     public void killDragons(){
-        if(heman.representation == 'A' && lizzy.representation == 'D'){
+        if(heman.isArmed() && lizzy.isAlive()){
             //check adjacent cells
-            if((heman.posx + 1 == lizzy.posx && heman.posy == lizzy.posy) ||
-                    (heman.posx - 1 == lizzy.posx && heman.posy == lizzy.posy) ||
-                    (heman.posx == lizzy.posx && heman.posy - 1 == lizzy.posy) ||
-                    (heman.posx == lizzy.posx && heman.posy + 1 == lizzy.posy))
-                lizzy.representation = ' ';
+            if((heman.getPosX() + 1 == lizzy.getPosX() && heman.getPosY() == lizzy.getPosY()) ||
+                    (heman.getPosX() - 1 == lizzy.getPosX() && heman.getPosY() == lizzy.getPosY()) ||
+                    (heman.getPosX() == lizzy.getPosX() && heman.getPosY() - 1 == lizzy.getPosY()) ||
+                    (heman.getPosX() == lizzy.getPosX() && heman.getPosY() + 1 == lizzy.getPosY()))
+                lizzy.die();
         }
     }
 
-    //ends the cicle if player crosses exit with sword or meets dragon without one
+    //ends the cyle if player crosses exit while armed or meets dragon unnarmed
     public boolean checkEndConditions(){
         return !(checkExit() || hereBeDragons());
     }
 
-    //returns true once hero has found exit
-    boolean checkExit(){
+    //returns true once hero has found exit while armed
+    private boolean checkExit(){
         int exitx = -1;
         int exity = -1;
         for(int i = 0; i < 10; i++){
             for(int j = 0; j < 10; j++){
-                if(map[i][j].representation == 'S'){
+                if(map[i][j] == 'S'){
                     exitx = j;
                     exity = i;
                 }
             }
         }
-        if(exitx == heman.posx && exity == heman.posy && heman.representation == 'A')
-            return true;
-        else
-            return false;
+        return (exitx == heman.getPosX() && exity == heman.getPosY() && heman.isArmed());
     }
 
-
-    boolean hereBeDragons(){
-        if(heman.representation == 'H' && (lizzy.representation == 'D' || lizzy.representation == 'F')){
+    //TODO: I think this can be slightly optimized
+    //returns true if Hero has a Dragon in adjacent block while unnarmed
+    private boolean hereBeDragons(){
+        if(heman.getRep() == 'H' && (lizzy.getRep() == 'D' || lizzy.getRep() == 'F')){
             //check right cell
-            if(heman.posx + 1 == lizzy.posx && heman.posy == lizzy.posy){
+            if(heman.getPosX() + 1 == lizzy.getPosX() && heman.getPosY() == lizzy.getPosY()){
                 System.out.println("Death... by fire");
                 return true;
             }
             //check left cell
-            else if(heman.posx - 1 == lizzy.posx && heman.posy == lizzy.posy){
+            else if(heman.getPosX() - 1 == lizzy.getPosX() && heman.getPosY() == lizzy.getPosY()){
                 System.out.println("Death... by fire");
                 return true;
             }
             //check up cell
-            else if(heman.posx == lizzy.posx && heman.posy - 1 == lizzy.posy){
+            else if(heman.getPosX() == lizzy.getPosX() && heman.getPosY() - 1 == lizzy.getPosY()){
                 System.out.println("Death... by fire");
                 return true;
             }
             //check down cell
-            else if(heman.posx == lizzy.posx && heman.posy + 1 == lizzy.posy){
+            else if(heman.getPosX() == lizzy.getPosX() && heman.getPosY() + 1 == lizzy.getPosY()){
                 System.out.println("Death... by fire");
                 return true;
             }
