@@ -11,6 +11,8 @@ public class Dragon extends GameObject{
 
     public Dragon(char rep, int x, int y){
         super(rep, x, y);
+        Random rand = new Random();
+        awakeTimer = rand.nextInt(10) + 1;
     }
 
     public void move(String direction){
@@ -62,6 +64,10 @@ public class Dragon extends GameObject{
         setRep(' ');
     }
 
+    public boolean isSleeping(){
+        return sleeping;
+    }
+
     public void guardSword(){
         onSword = true;
         if(alive)
@@ -72,9 +78,12 @@ public class Dragon extends GameObject{
 
     public void leaveSword(){
         onSword = false;
-        if(alive)
-            setRep('D');
-        else
+        if(alive){
+            if(sleeping)
+                setRep('d');
+            else
+                setRep('D');
+        } else
             setRep(' ');
     }
 }

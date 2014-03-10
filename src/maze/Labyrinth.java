@@ -167,7 +167,7 @@ public class Labyrinth{
         }
     }
 
-    //ends the cyle if player crosses exit while armed or meets dragon unnarmed
+    //ends the cycle if player crosses exit while armed or meets dragon unnarmed
     public boolean checkEndConditions(){
         return !(checkExit() || checkFatalDragons());
     }
@@ -190,7 +190,7 @@ public class Labyrinth{
     //TODO: I think this can be slightly optimized
     //returns true if Hero has a Dragon in adjacent block while unnarmed
     private boolean checkFatalDragons(){
-        if(!heman.isArmed() && lizzy.isAlive()){
+        if(!heman.isArmed() && lizzy.isAlive() && !lizzy.isSleeping()){
             //check right cell
             if(heman.getPosX() + 1 == lizzy.getPosX() && heman.getPosY() == lizzy.getPosY()){
                 System.out.println("Death... by fire");
