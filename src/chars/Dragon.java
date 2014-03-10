@@ -3,11 +3,11 @@ package chars;
 import java.util.Random;
 
 public class Dragon extends GameObject{
-    boolean alive = true;
-    boolean sleeping = false;
-    boolean onSword = false;
-    int sleepTimer = 0;
-    int awakeTimer = 0;
+    private boolean alive = true;
+    private boolean sleeping = false;
+    private boolean onSword = false;
+    private int sleepTimer = 0;
+    private int awakeTimer = 0;
 
     public Dragon(char rep, int x, int y){
         super(rep, x, y);
@@ -59,6 +59,7 @@ public class Dragon extends GameObject{
 
     public void die(){
         alive = false;
+        setRep(' ');
     }
 
     public void guardSword(){
