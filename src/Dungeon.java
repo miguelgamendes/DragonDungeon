@@ -81,12 +81,12 @@ public class Dungeon{
 
         while(lab.checkEndConditions()){
             lab.print();
-            System.out.println("Where do you wanna move, bitch?");
+            System.out.println("In which direction do you wish to move?");
             choice = scan.nextLine();
             lab.moveHero(choice);
             lab.moveDragons();
-            lab.checkWeapon();
-            lab.killDragons();
+            lab.checkConditions();
+            lab.changeStates();
         }
     }
 }

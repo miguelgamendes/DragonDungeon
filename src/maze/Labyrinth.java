@@ -1,12 +1,12 @@
 package maze;
 
-import chars.Dragon;
-import chars.Hero;
+import chars.*;
 
 import java.util.Random;
 
 public class Labyrinth{
     Hero heman = new Hero('H', 1, 1);
+    Sword excalibur = new Sword('C', 1, 8);
     Dragon lizzy = new Dragon('D', 1, 3);
     //Cell[][] map = new Cell[10][10];
     // TEST MAZE
@@ -85,7 +85,7 @@ public class Labyrinth{
         }
     }
 
-    //moves Hero in 'direction'
+    //moves Hero in 'direction', preventing movement to unpassable blocks
     public void moveHero(String direction){
         if(direction.equals("up") && checkPassable(heman.getPosX(), heman.getPosY() - 1))
             heman.move(direction);
@@ -136,25 +136,23 @@ public class Labyrinth{
 
     //arms Hero once his position matches the sword's
     public void checkWeapon(){
-        int weaponx = -1;
-        int weapony = -1;
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
-                if(map[i][j] == 'E'){
-                    weaponx = j;
-                    weapony = i;
-                }
-            }
-        }
-        if(weaponx == heman.getPosX() && weapony == heman.getPosY()){
+        if(excalibur.getPosX() == heman.getPosX() && excalibur.getPosY() == heman.getPosY()){
             heman.arm();
-            map[weapony][weaponx] = ' '; //TODO: This won't do. We need a Sword class as a GameObject
+            excalibur.setRep(' ');
         }
-        if(weaponx == lizzy.getPosX() && weapony == lizzy.getPosY() && map[weapony][weaponx] == 'E'){
-            lizzy.setRep('F');
+        if(excalibur.getPosX() == lizzy.getPosX() && excalibur.getPosY() == lizzy.getPosY() && excalibur.isPickedUp()){
+            lizzy.guardSword();
         } else {
-            lizzy.setRep('D');
+            lizzy.leaveSword();
         }
+    }
+
+    public void checkConditions(){
+        checkWeapon();
+    }
+
+    public void changeStates(){
+        killDragons();
     }
 
     //kills dragons in adjacent blocks if Hero is armed
@@ -171,7 +169,7 @@ public class Labyrinth{
 
     //ends the cyle if player crosses exit while armed or meets dragon unnarmed
     public boolean checkEndConditions(){
-        return !(checkExit() || hereBeDragons());
+        return !(checkExit() || checkFatalDragons());
     }
 
     //returns true once hero has found exit while armed
@@ -191,8 +189,8 @@ public class Labyrinth{
 
     //TODO: I think this can be slightly optimized
     //returns true if Hero has a Dragon in adjacent block while unnarmed
-    private boolean hereBeDragons(){
-        if(heman.getRep() == 'H' && (lizzy.getRep() == 'D' || lizzy.getRep() == 'F')){
+    private boolean checkFatalDragons(){
+        if(!heman.isArmed() && lizzy.isAlive()){
             //check right cell
             if(heman.getPosX() + 1 == lizzy.getPosX() && heman.getPosY() == lizzy.getPosY()){
                 System.out.println("Death... by fire");
