@@ -1,8 +1,8 @@
 package chars;
 
 public class Sword extends GameObject{
-    boolean pickedUp = false
-            ;
+    boolean pickedUp = false;
+
     public Sword(char rep, int x, int y){
         super(rep, x, y);
     }

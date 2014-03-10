@@ -9,6 +9,7 @@ public class Labyrinth{
     Sword excalibur = new Sword('C', 1, 8);
     Dragon lizzy = new Dragon('D', 1, 3);
     //Cell[][] map = new Cell[10][10];
+    char[][] drawMap = new char[10][10];
     // TEST MAZE
     char[][] map = {
             {'X','X','X','X','X','X','X','X','X','X'},
@@ -19,7 +20,7 @@ public class Labyrinth{
             {'X',' ',' ',' ',' ',' ',' ','X',' ','S'},
             {'X',' ','X','X',' ','X',' ','X',' ','X'},
             {'X',' ','X','X',' ','X',' ','X',' ','X'},
-            {'X','E','X','X',' ',' ',' ',' ',' ','X'},
+            {'X',' ','X','X',' ',' ',' ',' ',' ','X'},
             {'X','X','X','X','X','X','X','X','X','X'}};
 
     /*
@@ -73,13 +74,14 @@ public class Labyrinth{
     //TODO: optimize this. Print movables over map. No need for so much innefective checking
     public void print(){
         for(int i = 0; i < 10; i++){
+            drawMap[i] = map[i].clone();
+        }
+        drawMap[heman.getPosY()][heman.getPosX()] = heman.getRep();
+        drawMap[lizzy.getPosY()][lizzy.getPosX()] = lizzy.getRep();
+        drawMap[excalibur.getPosY()][excalibur.getPosX()] = excalibur.getRep();
+        for(int i = 0; i < 10; i++){
             for(int j = 0; j < 10; j++){
-                if(i == heman.getPosY() && j == heman.getPosX())
-                    System.out.print(heman.getRep());
-                else if(i == lizzy.getPosY() && j == lizzy.getPosX())
-                    System.out.print(lizzy.getRep());
-                else
-                    System.out.print(map[i][j]);
+                System.out.print(drawMap[i][j]);
             }
             System.out.println();
         }
@@ -138,7 +140,7 @@ public class Labyrinth{
     public void checkWeapon(){
         if(excalibur.getPosX() == heman.getPosX() && excalibur.getPosY() == heman.getPosY()){
             heman.arm();
-            excalibur.setRep(' ');
+            excalibur.pickUp();
         }
         if(excalibur.getPosX() == lizzy.getPosX() && excalibur.getPosY() == lizzy.getPosY() && excalibur.isPickedUp()){
             lizzy.guardSword();
@@ -147,11 +149,9 @@ public class Labyrinth{
         }
     }
 
+    //checks important situations, changes game object states accordingly
     public void checkConditions(){
         checkWeapon();
-    }
-
-    public void changeStates(){
         killDragons();
     }
 

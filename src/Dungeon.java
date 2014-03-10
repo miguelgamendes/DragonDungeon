@@ -86,7 +86,6 @@ public class Dungeon{
             lab.moveHero(choice);
             lab.moveDragons();
             lab.checkConditions();
-            lab.changeStates();
         }
     }
 }

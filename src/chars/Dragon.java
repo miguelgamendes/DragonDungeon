@@ -63,11 +63,17 @@ public class Dragon extends GameObject{
 
     public void guardSword(){
         onSword = true;
-        setRep('F');
+        if(alive)
+            setRep('F');
+        else
+            setRep(' ');
     }
 
     public void leaveSword(){
         onSword = false;
-        setRep('D');
+        if(alive)
+            setRep('D');
+        else
+            setRep(' ');
     }
 }
