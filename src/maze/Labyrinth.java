@@ -76,9 +76,9 @@ public class Labyrinth{
         for(int i = 0; i < 10; i++){
             drawMap[i] = map[i].clone();
         }
-        drawMap[heman.getPosY()][heman.getPosX()] = heman.getRep();
         drawMap[lizzy.getPosY()][lizzy.getPosX()] = lizzy.getRep();
         drawMap[excalibur.getPosY()][excalibur.getPosX()] = excalibur.getRep();
+        drawMap[heman.getPosY()][heman.getPosX()] = heman.getRep();
         for(int i = 0; i < 10; i++){
             for(int j = 0; j < 10; j++){
                 System.out.print(drawMap[i][j]);
