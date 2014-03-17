@@ -3,15 +3,18 @@ package maze;
 import chars.*;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Labyrinth{
     Hero heman = new Hero('H', 1, 1);
-    Sword excalibur = new Sword('C', 1, 8);
+    Sword excalibur = new Sword('S', 1, 8);
     Dragon lizzy = new Dragon('D', 1, 3);
+    Generator gen = new Generator(10);
     //Cell[][] map = new Cell[10][10];
     char[][] drawMap = new char[10][10];
     // TEST MAZE
-    char[][] map = {
+    char[][] terrain;
+    /*char[][] map = {
             {'X','X','X','X','X','X','X','X','X','X'},
             {'X',' ',' ',' ',' ',' ',' ',' ',' ','X'},
             {'X',' ','X','X',' ','X',' ','X',' ','X'},
@@ -21,64 +24,46 @@ public class Labyrinth{
             {'X',' ','X','X',' ','X',' ','X',' ','X'},
             {'X',' ','X','X',' ','X',' ','X',' ','X'},
             {'X',' ','X','X',' ',' ',' ',' ',' ','X'},
-            {'X','X','X','X','X','X','X','X','X','X'}};
+            {'X','X','X','X','X','X','X','X','X','X'}};*/
 
-    /*
-    //MAZE GENERATION FUNCTIONS
-
-    public void generateOuterWalls(){
-        for(int i = 0; i < map.length; i++)
-            for(int j = 0; j < map[i].length; j++){
-                map[i][j] = new Cell();
-                if(i == 0 || i == map.length - 1 || j == 0 || j == map[i].length - 1)
-                    map[i][j].representation = 'X';
-                else
-                    map[i][j].representation = ' ';
-                map[i][j].posx = j;
-                map[i][j].posy = i;
-            }
+    public void initialParameters(){
+        String strategy;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please choose dragon strategy (sleepy, random, sleepyrandom)");
+        strategy = scan.nextLine();
     }
 
-    //TODO: eliminate corner exits (yeah, it's happening)
-    public void generateExit(){
-        Random rand = new Random();
-        //exit on horizontal or vertical wall -> 0 = horizontal
-        int rand2 = rand.nextInt(2);
-        //decide side -> 0 = left/up
-        int rand3 = rand.nextInt(2);
-        //determine exit cell
-        int rand4 = rand.nextInt(8) + 1;
-        if(rand2 == 0){
-            if(rand3 == 0)
-                map[0][rand4].representation = 'S';
-            else
-                map[map.length - 1][rand4].representation = 'S';
-        } else {
-            if(rand3 == 0)
-                map[rand4][0].representation = 'S';
-            else
-                map[map.length - 1][rand4].representation = 'S';
+    public void generateMap(){
+        //terrain = gen.generateDefault();
+        terrain = gen.generateRandomizedDFS();
+    }
+
+    public void gameCycle(Labyrinth lab){
+        String choice;
+        Scanner scan = new Scanner(System.in);
+
+        while(lab.checkEndConditions()){
+            print();
+            System.out.println("In which direction do you wish to move?");
+            choice = scan.nextLine();
+            moveHero(choice);
+            moveDragons();
+            checkConditions();
         }
     }
-
-    //TODO: complete this, obviously
-    void generateWalls(){
-        Stack cellStack;
-        Cell currentCell;
-        for(int i = 0; i < map.length ; i++)
-            for(int j = 0; j < map[i].length; j++)
-    }
-*/
-    //END OF MAZE GENERATION FUNCTIONS
 
     //TODO: optimize this. Print movables over map. No need for so much innefective checking
     public void print(){
+        //create terrain
         for(int i = 0; i < 10; i++){
-            drawMap[i] = map[i].clone();
+            drawMap[i] = terrain[i].clone();
         }
+        //overlay game objects
         drawMap[lizzy.getPosY()][lizzy.getPosX()] = lizzy.getRep();
         drawMap[excalibur.getPosY()][excalibur.getPosX()] = excalibur.getRep();
         drawMap[heman.getPosY()][heman.getPosX()] = heman.getRep();
+
+        //draw map
         for(int i = 0; i < 10; i++){
             for(int j = 0; j < 10; j++){
                 System.out.print(drawMap[i][j]);
@@ -130,9 +115,9 @@ public class Labyrinth{
     //returns true if Hero can pass through block in position (x, y)
     private boolean checkPassable(int x, int y){
         if(heman.isArmed()){
-            return !(map[y][x] == 'X');
+            return !(terrain[y][x] == 'X');
         } else {
-            return !(map[y][x] == 'X' || map[y][x] == 'S');
+            return !(terrain[y][x] == 'X' || terrain[y][x] == 'S');
         }
     }
 
@@ -178,7 +163,7 @@ public class Labyrinth{
         int exity = -1;
         for(int i = 0; i < 10; i++){
             for(int j = 0; j < 10; j++){
-                if(map[i][j] == 'S'){
+                if(terrain[i][j] == 'S'){
                     exitx = j;
                     exity = i;
                 }

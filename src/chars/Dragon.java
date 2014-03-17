@@ -40,7 +40,6 @@ public class Dragon extends GameObject{
     }
 
     public void sleep(){
-        System.out.println("Sleeping"); //for debug purposes
         Random rand = new Random();
         sleepTimer = rand.nextInt(10) + 1;
         sleeping = true;
@@ -48,7 +47,6 @@ public class Dragon extends GameObject{
     }
 
     public void wakeUp(){
-        System.out.println("Waking up");
         Random rand = new Random();
         awakeTimer = rand.nextInt(10) + 1;
         sleeping = false;

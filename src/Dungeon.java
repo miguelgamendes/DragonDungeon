@@ -60,32 +60,17 @@
 //
 import maze.Labyrinth;
 
-import java.util.Scanner;
-
 public class Dungeon{
     public static void main(String[] args){
         Labyrinth lab = new Labyrinth();
 
-        //maze generation
-        //lab.generateOuterWalls();
-        //lab.generateExit();
-        //lab.generateWalls();
+        //game parameters definition
+        lab.initialParameters();
+
+        //generate map
+        lab.generateMap();
 
         //main game cycle
-        gameCycle(lab);
-    }
-
-    private static void gameCycle(Labyrinth lab){
-        String choice;
-        Scanner scan = new Scanner(System.in);
-
-        while(lab.checkEndConditions()){
-            lab.print();
-            System.out.println("In which direction do you wish to move?");
-            choice = scan.nextLine();
-            lab.moveHero(choice);
-            lab.moveDragons();
-            lab.checkConditions();
-        }
+        lab.gameCycle(lab);
     }
 }
