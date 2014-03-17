@@ -67,7 +67,7 @@
       <file leaf-file-name="Dungeon.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Dungeon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="0" selection-start="5370" selection-end="5370" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+            <state line="68" column="0" selection-start="5370" selection-end="5370" vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="1458">
               <folding />
             </state>
           </provider>
@@ -76,16 +76,16 @@
       <file leaf-file-name="Labyrinth.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/maze/Labyrinth.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="46" selection-start="1331" selection-end="1331" vertical-scroll-proportion="0.0" vertical-offset="2802" max-vertical-offset="3502">
+            <state line="37" column="46" selection-start="1331" selection-end="1331" vertical-scroll-proportion="0.0" vertical-offset="666" max-vertical-offset="3762">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Generator.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Generator.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/maze/Generator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="151" column="32" selection-start="5040" selection-end="5040" vertical-scroll-proportion="0.5544355" vertical-offset="2292" max-vertical-offset="2822">
+            <state line="151" column="32" selection-start="5040" selection-end="5040" vertical-scroll-proportion="0.0" vertical-offset="2339" max-vertical-offset="2988">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,10 +93,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="testMaze.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/testMaze.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="0" selection-start="401" selection-end="401" vertical-scroll-proportion="-2.1078582" vertical-offset="1620" max-vertical-offset="2574">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Sword.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chars/Sword.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+            <state line="4" column="0" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="414">
               <folding />
             </state>
           </provider>
@@ -105,7 +114,7 @@
       <file leaf-file-name="Cell.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/maze/Cell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="17" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+            <state line="4" column="17" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="234">
               <folding />
             </state>
           </provider>
@@ -114,7 +123,7 @@
       <file leaf-file-name="GameObject.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chars/GameObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="21" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+            <state line="32" column="21" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="576" max-vertical-offset="900">
               <folding />
             </state>
           </provider>
@@ -123,7 +132,7 @@
       <file leaf-file-name="Hero.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chars/Hero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="34" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+            <state line="3" column="34" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="666">
               <folding />
             </state>
           </provider>
@@ -132,7 +141,7 @@
       <file leaf-file-name="Dragon.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chars/Dragon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="5" selection-start="1518" selection-end="1518" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="1496">
+            <state line="57" column="5" selection-start="1518" selection-end="1518" vertical-scroll-proportion="0.0" vertical-offset="935" max-vertical-offset="1584">
               <folding />
             </state>
           </provider>
@@ -167,10 +176,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-4" />
-    <option name="y" value="-4" />
-    <option name="width" value="1608" />
-    <option name="height" value="908" />
+    <option name="width" value="1366" />
+    <option name="height" value="768" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -198,8 +205,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -246,6 +251,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testMaze.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dungeon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DragonDungeon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="maze" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -270,6 +297,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -338,19 +367,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -376,6 +392,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -454,7 +483,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1608" height="908" extended-state="6" />
+    <frame x="0" y="0" width="1366" height="768" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -467,17 +496,17 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32695138" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.129375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35635018" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12884334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35502958" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292232" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32695138" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -804,13 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/chars/Dragon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="5" selection-start="1518" selection-end="1518" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="1496">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/chars/Sword.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="0" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
@@ -846,12 +868,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/chars/Dragon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="5" selection-start="1518" selection-end="1518" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="1496">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/maze/Generator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="32" selection-start="5040" selection-end="5040" vertical-scroll-proportion="0.5544355" vertical-offset="2292" max-vertical-offset="2822">
+        <state line="151" column="32" selection-start="5040" selection-end="5040" vertical-scroll-proportion="0.0" vertical-offset="2339" max-vertical-offset="2988">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/testMaze.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="401" selection-end="401" vertical-scroll-proportion="-2.1078582" vertical-offset="1620" max-vertical-offset="2574">
+          <folding />
         </state>
       </provider>
     </entry>
