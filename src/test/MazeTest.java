@@ -51,7 +51,7 @@ public class MazeTest {
         for(int i = 0; i < 14; i++)
             lab.moveHero(commands.get(i));
 
-        assertTrue(lab.getHero().getArmed());
+        assertTrue(lab.getHero().isArmed());
     }
 
     @Test public void testDies() {
@@ -90,7 +90,7 @@ public class MazeTest {
         for(int i = 0; i < 18; i++)
             lab.moveHero(commands.get(i));
 
-        assertFalse(lab.getDragon.isAlive());
+        assertFalse(lab.getDragon().isAlive());
 
     }
 
@@ -162,8 +162,5 @@ public class MazeTest {
 
         assertTrue(lab.checkEndConditions());
     }
-
-    }
-
 
 }

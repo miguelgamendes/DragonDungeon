@@ -27,6 +27,14 @@ public class Labyrinth{
             {'X',' ','X','X',' ',' ',' ',' ',' ','X'},
             {'X','X','X','X','X','X','X','X','X','X'}};*/
 
+    public Hero getHero(){
+        return heman;
+    }
+
+    public Dragon getDragon(){
+        return lizzy;
+    }
+
     public void initialParameters(){
         String strategy;
         Scanner scan = new Scanner(System.in);
@@ -169,7 +177,7 @@ public class Labyrinth{
     }
 
     //returns true once hero has found exit while armed
-    private boolean checkExit(){
+    public boolean checkExit(){
         int exitx = -1;
         int exity = -1;
         for(int i = 0; i < 10; i++){
