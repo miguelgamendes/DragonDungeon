@@ -9,6 +9,7 @@ public class Labyrinth{
     Hero heman = new Hero('H', 1, 1);
     Sword excalibur = new Sword('S', 1, 8);
     Dragon lizzy = new Dragon('D', 1, 3);
+    Eagle hedwig;
     Generator gen = new Generator(10);
     //Cell[][] map = new Cell[10][10];
     char[][] drawMap = new char[10][10];
@@ -48,6 +49,8 @@ public class Labyrinth{
             choice = scan.nextLine();
             moveHero(choice);
             moveDragons();
+            if(hedwig.called)
+                moveEagle();
             checkConditions();
         }
     }
@@ -82,6 +85,8 @@ public class Labyrinth{
             heman.move(direction);
         else if(direction.equals("right") && checkPassable(heman.getPosX() + 1, heman.getPosY()))
             heman.move(direction);
+        else if(direction.equals("eagle"))
+            callEagle(heman.getPosX(), heman.getPosY());
         else
             System.out.println("Command not found/Unpassable block!");
     }
@@ -110,6 +115,12 @@ public class Labyrinth{
                     lizzy.move("right");
                 break;
         }
+    }
+
+    public void callEagle(int x, int y)
+    {
+        hedwig = new Eagle(x,y);
+        hedwig.called = true;
     }
 
     //returns true if Hero can pass through block in position (x, y)
@@ -204,5 +215,52 @@ public class Labyrinth{
                 return false;
         } else
             return false;
+    }
+
+    public void findEagleWay() {
+        hedwig.wayX = excalibur.getPosX() - hedwig.getPosX();
+        hedwig.wayY = excalibur.getPosY() - hedwig.getPosY();
+    }
+
+    public void moveEagle() {
+        if( hedwig.wayY < 0 && (hedwig.wayX == 0 || Math.abs(hedwig.wayX) > Math.abs(hedwig.wayY)))
+        {
+            moveEagle("up");
+            hedwig.wayY++;
+        }
+        else if(hedwig.wayY > 0 && (hedwig.wayX == 0 || Math.abs(hedwig.wayY) > Math.abs(hedwig.wayX)))
+        {
+            moveEagle("down");
+            hedwig.wayY--;
+        }
+        else if(hedwig.wayX < 0 && (hedwig.wayY == 0 || Math.abs(hedwig.wayX) > Math.abs(hedwig.wayY)))
+        {
+            moveEagle("left");
+            hedwig.wayX++;
+        }
+        else if(hedwig.wayX > 0 && (hedwig.wayY == 0 || Math.abs(hedwig.wayX) > Math.abs(hedwig.wayY)))
+        {
+            moveEagle("right");
+            hedwig.wayX--;
+        }
+        else if(!(hedwig.caughtSword))
+        {
+            hedwig.caughtSword = true;
+            hedwig.wayX = hedwig.startX;
+            hedwig.wayY = hedwig.startY;
+        }
+        else {} //it means that it is awaiting for it's hero in the initial position
+    }
+
+    public void moveEagle(String direction)
+    {
+        if(direction.equals("up"))
+            hedwig.setPosY(hedwig.getPosY() - 1);
+        else if(direction.equals("down"))
+            hedwig.setPosY(hedwig.getPosY() + 1);
+        else if(direction.equals("right"))
+            hedwig.setPosX(hedwig.getPosX() + 1);
+        else if(direction.equals("left"))
+            hedwig.setPosX(hedwig.getPosX() - 1);
     }
 }
