@@ -179,21 +179,25 @@ public class Labyrinth{
             //check right cell
             if(heman.getPosX() + 1 == lizzy.getPosX() && heman.getPosY() == lizzy.getPosY()){
                 System.out.println("Death... by fire");
+                heman.kill();
                 return true;
             }
             //check left cell
             else if(heman.getPosX() - 1 == lizzy.getPosX() && heman.getPosY() == lizzy.getPosY()){
                 System.out.println("Death... by fire");
+                heman.kill();
                 return true;
             }
             //check up cell
             else if(heman.getPosX() == lizzy.getPosX() && heman.getPosY() - 1 == lizzy.getPosY()){
                 System.out.println("Death... by fire");
+                heman.kill();
                 return true;
             }
             //check down cell
             else if(heman.getPosX() == lizzy.getPosX() && heman.getPosY() + 1 == lizzy.getPosY()){
                 System.out.println("Death... by fire");
+                heman.kill();
                 return true;
             }
             else

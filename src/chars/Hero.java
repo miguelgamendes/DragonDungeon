@@ -2,6 +2,7 @@ package chars;
 
 public class Hero extends GameObject{
     private boolean armed = false;
+    private boolean alive = true;
 
     public Hero(char rep, int x, int y){
         super(rep, x, y);
@@ -28,5 +29,13 @@ public class Hero extends GameObject{
 
     public void arm(){
         armed = true;
+    }
+
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public void kill() {
+        alive = false;
     }
 }

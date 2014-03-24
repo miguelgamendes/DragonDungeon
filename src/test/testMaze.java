@@ -135,7 +135,34 @@ public class MazeTest {
         for(int i = 0; i < 33; i++)
             lab.moveHero(commands.get(i));
 
-        assertTrue(checkExit());
+        assertTrue(lab.checkExit());
+    }
+
+    @Test public void testExitNotWin() {
+        Labyrinth lab = new Labyrinth();
+        ArrayList<String> commands = new ArrayList<String>();
+
+        commands.add("sleepy");
+        commands.add("right");
+        commands.add("right");
+        commands.add("right");
+        commands.add("right");
+        commands.add("right");
+        commands.add("right");
+        commands.add("right");
+        commands.add("down");
+        commands.add("down");
+        commands.add("down");
+        commands.add("down");
+        commands.add("down");
+        commands.add("right");
+
+        for(int i = 0; i < 14; i++)
+            lab.moveHero(commands.get(i));
+
+        assertTrue(lab.checkEndConditions());
+    }
+
     }
 
 
