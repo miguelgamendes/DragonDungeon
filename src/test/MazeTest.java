@@ -1,9 +1,10 @@
 package test;
 
-import maze.*;
-import chars.*;
-import org.junit.*;
+import maze.Labyrinth;
+import org.junit.Test;
+
 import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 
@@ -11,7 +12,6 @@ public class MazeTest {
     @Test public void testEmptyMove() {
 
         Labyrinth lab = new Labyrinth();
-        lab.initialParameters();
 
         lab.moveHero("right");
         assertEquals(2, lab.getHero().getPosX());
@@ -21,7 +21,6 @@ public class MazeTest {
 
     @Test public void testIllegalMove() {
         Labyrinth lab = new Labyrinth();
-        lab.initialParameters();
 
         lab.moveHero("left");
         assertEquals(1, lab.getHero().getPosX());
@@ -33,7 +32,6 @@ public class MazeTest {
         Labyrinth lab = new Labyrinth();
         ArrayList<String> commands = new ArrayList<String>();
 
-        commands.add("sleepy");
         commands.add("right");
         commands.add("right");
         commands.add("right");
@@ -57,7 +55,6 @@ public class MazeTest {
     @Test public void testDies() {
         Labyrinth lab = new Labyrinth();
 
-        lab.moveHero("sleepy");
         lab.moveHero("down");
 
         assertFalse(lab.getHero().isAlive());
@@ -68,7 +65,6 @@ public class MazeTest {
         Labyrinth lab = new Labyrinth();
         ArrayList<String> commands = new ArrayList<String>();
 
-        commands.add("sleepy");
         commands.add("right");
         commands.add("right");
         commands.add("right");
@@ -98,7 +94,6 @@ public class MazeTest {
         Labyrinth lab = new Labyrinth();
         ArrayList<String> commands = new ArrayList<String>();
 
-        commands.add("sleepy");
         commands.add("right");
         commands.add("right");
         commands.add("right");
@@ -142,7 +137,6 @@ public class MazeTest {
         Labyrinth lab = new Labyrinth();
         ArrayList<String> commands = new ArrayList<String>();
 
-        commands.add("sleepy");
         commands.add("right");
         commands.add("right");
         commands.add("right");

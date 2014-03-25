@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class Labyrinth{
     Hero heman = new Hero('H', 1, 1);
-    Sword excalibur = new Sword('S', 1, 8);
+    Sword excalibur = new Sword('E', 1, 8);
     Dragon lizzy = new Dragon('D', 1, 3);
-    Eagle hedwig;
+    Eagle hedwig = new Eagle('A', 1, 1);
     Generator gen = new Generator(10);
     //Cell[][] map = new Cell[10][10];
     char[][] drawMap = new char[10][10];
@@ -127,7 +127,8 @@ public class Labyrinth{
 
     public void callEagle(int x, int y)
     {
-        hedwig = new Eagle(x,y);
+        hedwig.startX = heman.getPosX();
+        hedwig.startY = heman.getPosY();
         hedwig.called = true;
     }
 
