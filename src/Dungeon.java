@@ -68,7 +68,7 @@ public class Dungeon{
         lab.initialParameters();
 
         //generate map
-        lab.generateMap();
+        lab.generateRandomMap();
 
         //main game cycle
         lab.gameCycle(lab);

@@ -42,8 +42,11 @@ public class Labyrinth{
         strategy = scan.nextLine();
     }
 
-    public void generateMap(){
-        //terrain = gen.generateDefault();
+    public void generateDefaultMap(){
+        terrain = gen.generateDefault();
+    }
+
+    public void generateRandomMap(){
         terrain = gen.generateRandomizedDFS();
     }
 
@@ -63,7 +66,6 @@ public class Labyrinth{
         }
     }
 
-    //TODO: optimize this. Print movables over map. No need for so much innefective checking
     public void print(){
         //create terrain
         for(int i = 0; i < 10; i++){
