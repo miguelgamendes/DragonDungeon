@@ -1,5 +1,7 @@
 package chars;
 
+import java.util.Random;
+
 public abstract class GameObject{
     private int posx = 0;
     private int posy = 0;
@@ -46,5 +48,11 @@ public abstract class GameObject{
 
     public void setRep(char c){
         representation = c;
+    }
+
+    public void setRandomPos(int n){
+        Random rand = new Random();
+        posx = rand.nextInt(n);
+        posy = rand.nextInt(n);
     }
 }

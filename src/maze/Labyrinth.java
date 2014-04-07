@@ -4,42 +4,58 @@ import chars.*;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Vector;
 
 public class Labyrinth{
+    //game settings
+    int mapSize;
+    String strategy;
+    int dragonNumber;
+
+    //game objects
     Hero heman = new Hero('H', 1, 1);
     Sword excalibur = new Sword('E', 1, 8);
-    Dragon lizzy = new Dragon('D', 1, 3);
     Eagle hedwig = new Eagle();
+    Vector<Dragon> lizzy = new Vector<Dragon>();//new Dragon('D', 1, 3);
+
+    //generator
     Generator gen = new Generator(10);
-    //Cell[][] map = new Cell[10][10];
+
+    //map aids
     char[][] drawMap = new char[10][10];
-    // TEST MAZE
     char[][] terrain;
-    /*char[][] map = {
-            {'X','X','X','X','X','X','X','X','X','X'},
-            {'X',' ',' ',' ',' ',' ',' ',' ',' ','X'},
-            {'X',' ','X','X',' ','X',' ','X',' ','X'},
-            {'X',' ','X','X',' ','X',' ','X',' ','X'},
-            {'X',' ','X','X',' ','X',' ','X',' ','X'},
-            {'X',' ',' ',' ',' ',' ',' ','X',' ','S'},
-            {'X',' ','X','X',' ','X',' ','X',' ','X'},
-            {'X',' ','X','X',' ','X',' ','X',' ','X'},
-            {'X',' ','X','X',' ',' ',' ',' ',' ','X'},
-            {'X','X','X','X','X','X','X','X','X','X'}};*/
+
+    public Labyrinth(){
+        //game parameters definition
+        initialParameters();
+
+        //generate map
+        generateRandomMap();
+
+        //generate dragons
+        for(int i = 0; i < dragonNumber; i++){
+            lizzy.add(new Dragon('D'));
+            while(terrain[lizzy.get(i).getPosY()][lizzy.get(i).getPosX()] == 'X' || terrain[lizzy.get(i).getPosY()][lizzy.get(i).getPosX()] == 'S')
+                lizzy.get(i).setRandomPos(mapSize);
+        }
+    }
 
     public Hero getHero(){
         return heman;
     }
 
-    public Dragon getDragon(){
-        return lizzy;
+    public Dragon getDragon(int n){
+        return lizzy.get(n);
     }
 
     public void initialParameters(){
-        String strategy;
         Scanner scan = new Scanner(System.in);
+        System.out.print("How big do you like your maps? : ");
+        mapSize = scan.nextInt();
         System.out.println("Please choose dragon strategy (sleepy, random, sleepyrandom)");
         strategy = scan.nextLine();
+        System.out.print("Choose the number of dragons you'd like to face: ");
+        dragonNumber = scan.nextInt();
     }
 
     public void generateDefaultMap(){
@@ -72,9 +88,11 @@ public class Labyrinth{
             drawMap[i] = terrain[i].clone();
         }
         //overlay game objects
+
         if(hedwig.called)
             drawMap[hedwig.getPosY()][hedwig.getPosX()] = hedwig.getRep();
-        drawMap[lizzy.getPosY()][lizzy.getPosX()] = lizzy.getRep();
+        for(int i = 0; i < dragonNumber; i++)
+            drawMap[lizzy.get(i).getPosY()][lizzy.get(i).getPosX()] = lizzy.get(i).getRep();
         drawMap[excalibur.getPosY()][excalibur.getPosX()] = excalibur.getRep();
         drawMap[heman.getPosY()][heman.getPosX()] = heman.getRep();
 
@@ -105,27 +123,29 @@ public class Labyrinth{
 
     //moves every dragon
     public void moveDragons(){
+        for(int i = 0; i < dragonNumber; i++){
         Random rand = new Random();
         int rand2 = rand.nextInt(5);
-        switch(rand2){
-            case 0:
-                break;
-            case 1:
-                if(checkPassable(lizzy.getPosX(), lizzy.getPosY() - 1))
-                    lizzy.move("up");
-                break;
-            case 2:
-                if(checkPassable(lizzy.getPosX(), lizzy.getPosY() + 1))
-                    lizzy.move("down");
-                break;
-            case 3:
-                if(checkPassable(lizzy.getPosX() - 1, lizzy.getPosY()))
-                    lizzy.move("left");
-                break;
-            case 4:
-                if(checkPassable(lizzy.getPosX() + 1, lizzy.getPosY()))
-                    lizzy.move("right");
-                break;
+            switch(rand2){
+                case 0:
+                    break;
+                case 1:
+                    if(checkPassable(lizzy.get(i).getPosX(), lizzy.get(i).getPosY() - 1))
+                        lizzy.get(i).move("up");
+                    break;
+                case 2:
+                    if(checkPassable(lizzy.get(i).getPosX(), lizzy.get(i).getPosY() + 1))
+                        lizzy.get(i).move("down");
+                    break;
+                case 3:
+                    if(checkPassable(lizzy.get(i).getPosX() - 1, lizzy.get(i).getPosY()))
+                        lizzy.get(i).move("left");
+                    break;
+                case 4:
+                    if(checkPassable(lizzy.get(i).getPosX() + 1, lizzy.get(i).getPosY()))
+                        lizzy.get(i).move("right");
+                    break;
+            }
         }
     }
 
@@ -154,10 +174,12 @@ public class Labyrinth{
             heman.arm();
             excalibur.pickUp();
         }
-        if(excalibur.getPosX() == lizzy.getPosX() && excalibur.getPosY() == lizzy.getPosY() && excalibur.isPickedUp()){
-            lizzy.guardSword();
-        } else {
-            lizzy.leaveSword();
+        for(int i = 0; i < dragonNumber; i++){
+            if(excalibur.getPosX() == lizzy.get(i).getPosX() && excalibur.getPosY() == lizzy.get(i).getPosY() && excalibur.isPickedUp()){
+                lizzy.get(i).guardSword();
+            } else {
+                lizzy.get(i).leaveSword();
+            }
         }
     }
 
@@ -169,13 +191,15 @@ public class Labyrinth{
 
     //kills dragons in adjacent blocks if Hero is armed
     public void killDragons(){
-        if(heman.isArmed() && lizzy.isAlive()){
-            //check adjacent cells
-            if((heman.getPosX() + 1 == lizzy.getPosX() && heman.getPosY() == lizzy.getPosY()) ||
-                    (heman.getPosX() - 1 == lizzy.getPosX() && heman.getPosY() == lizzy.getPosY()) ||
-                    (heman.getPosX() == lizzy.getPosX() && heman.getPosY() - 1 == lizzy.getPosY()) ||
-                    (heman.getPosX() == lizzy.getPosX() && heman.getPosY() + 1 == lizzy.getPosY()))
-                lizzy.die();
+        for(int i = 0; i < dragonNumber; i++){
+            if(heman.isArmed() && lizzy.get(i).isAlive()){
+                //check adjacent cells
+                if((heman.getPosX() + 1 == lizzy.get(i).getPosX() && heman.getPosY() == lizzy.get(i).getPosY()) ||
+                        (heman.getPosX() - 1 == lizzy.get(i).getPosX() && heman.getPosY() == lizzy.get(i).getPosY()) ||
+                        (heman.getPosX() == lizzy.get(i).getPosX() && heman.getPosY() - 1 == lizzy.get(i).getPosY()) ||
+                        (heman.getPosX() == lizzy.get(i).getPosX() && heman.getPosY() + 1 == lizzy.get(i).getPosY()))
+                    lizzy.get(i).die();
+            }
         }
     }
 
@@ -202,35 +226,36 @@ public class Labyrinth{
     //TODO: I think this can be slightly optimized
     //returns true if Hero has a Dragon in adjacent block while unnarmed
     private boolean checkFatalDragons(){
-        if(!heman.isArmed() && lizzy.isAlive() && !lizzy.isSleeping()){
-            //check right cell
-            if(heman.getPosX() + 1 == lizzy.getPosX() && heman.getPosY() == lizzy.getPosY()){
-                System.out.println("Death... by fire");
-                heman.kill();
-                return true;
+        for(int i = 0; i < dragonNumber; i++){
+            if(!heman.isArmed() && lizzy.get(i).isAlive() && !lizzy.get(i).isSleeping()){
+                //check right cell
+                if(heman.getPosX() + 1 == lizzy.get(i).getPosX() && heman.getPosY() == lizzy.get(i).getPosY()){
+                    System.out.println("Death... by fire");
+                    heman.kill();
+                    return true;
+                }
+                //check left cell
+                else if(heman.getPosX() - 1 == lizzy.get(i).getPosX() && heman.getPosY() == lizzy.get(i).getPosY()){
+                    System.out.println("Death... by fire");
+                    heman.kill();
+                    return true;
+                }
+                //check up cell
+                else if(heman.getPosX() == lizzy.get(i).getPosX() && heman.getPosY() - 1 == lizzy.get(i).getPosY()){
+                    System.out.println("Death... by fire");
+                    heman.kill();
+                    return true;
+                }
+                //check down cell
+                else if(heman.getPosX() == lizzy.get(i).getPosX() && heman.getPosY() + 1 == lizzy.get(i).getPosY()){
+                    System.out.println("Death... by fire");
+                    heman.kill();
+                    return true;
+                }
             }
-            //check left cell
-            else if(heman.getPosX() - 1 == lizzy.getPosX() && heman.getPosY() == lizzy.getPosY()){
-                System.out.println("Death... by fire");
-                heman.kill();
-                return true;
-            }
-            //check up cell
-            else if(heman.getPosX() == lizzy.getPosX() && heman.getPosY() - 1 == lizzy.getPosY()){
-                System.out.println("Death... by fire");
-                heman.kill();
-                return true;
-            }
-            //check down cell
-            else if(heman.getPosX() == lizzy.getPosX() && heman.getPosY() + 1 == lizzy.getPosY()){
-                System.out.println("Death... by fire");
-                heman.kill();
-                return true;
-            }
-            else
-                return false;
-        } else
-            return false;
+        }
+
+        return false;
     }
 
     public void findEagleWay() {

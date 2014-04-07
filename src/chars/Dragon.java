@@ -15,6 +15,11 @@ public class Dragon extends GameObject{
         awakeTimer = rand.nextInt(10) + 1;
     }
 
+    public Dragon(char rep)
+    {
+        super(rep);
+    }
+
     public void move(String direction){
         if(!sleeping){
             if(awakeTimer == 0)
