@@ -11,8 +11,7 @@ public class Eagle extends GameObject {
     public int startY;
     public boolean caughtSword = false;
 
-    public Eagle(char A, int x, int y) {
-        super(A, x, y);
-        called = true;
+    public Eagle() {
+        super('A');
     }
 }

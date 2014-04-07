@@ -9,7 +9,7 @@ public class Labyrinth{
     Hero heman = new Hero('H', 1, 1);
     Sword excalibur = new Sword('E', 1, 8);
     Dragon lizzy = new Dragon('D', 1, 3);
-    Eagle hedwig = new Eagle('A', 1, 1);
+    Eagle hedwig = new Eagle();
     Generator gen = new Generator(10);
     //Cell[][] map = new Cell[10][10];
     char[][] drawMap = new char[10][10];
@@ -72,6 +72,8 @@ public class Labyrinth{
             drawMap[i] = terrain[i].clone();
         }
         //overlay game objects
+        if(hedwig.called)
+            drawMap[hedwig.getPosY()][hedwig.getPosX()] = hedwig.getRep();
         drawMap[lizzy.getPosY()][lizzy.getPosX()] = lizzy.getRep();
         drawMap[excalibur.getPosY()][excalibur.getPosX()] = excalibur.getRep();
         drawMap[heman.getPosY()][heman.getPosX()] = heman.getRep();
@@ -96,7 +98,7 @@ public class Labyrinth{
         else if(direction.equals("right") && checkPassable(heman.getPosX() + 1, heman.getPosY()))
             heman.move(direction);
         else if(direction.equals("eagle"))
-            callEagle(heman.getPosX(), heman.getPosY());
+            callEagle();
         else
             System.out.println("Command not found/Unpassable block!");
     }
@@ -127,8 +129,11 @@ public class Labyrinth{
         }
     }
 
-    public void callEagle(int x, int y)
+    public void callEagle()
     {
+        findEagleWay();
+        hedwig.setPosY(heman.getPosY());
+        hedwig.setPosX(heman.getPosX());
         hedwig.startX = heman.getPosX();
         hedwig.startY = heman.getPosY();
         hedwig.called = true;
@@ -234,24 +239,24 @@ public class Labyrinth{
     }
 
     public void moveEagle() {
-        if( hedwig.wayY < 0 && (hedwig.wayX == 0 || Math.abs(hedwig.wayX) > Math.abs(hedwig.wayY)))
+        if( hedwig.wayY < 0 && (hedwig.wayX == 0 || Math.abs(hedwig.wayX) < Math.abs(hedwig.wayY)))
         {
-            moveEagle("up");
+            hedwig.setPosY(hedwig.getPosY() - 1);
             hedwig.wayY++;
         }
-        else if(hedwig.wayY > 0 && (hedwig.wayX == 0 || Math.abs(hedwig.wayY) > Math.abs(hedwig.wayX)))
+        else if(hedwig.wayY > 0 && (hedwig.wayX == 0 || Math.abs(hedwig.wayX) < Math.abs(hedwig.wayY)))
         {
-            moveEagle("down");
+            hedwig.setPosY(hedwig.getPosY() + 1);
             hedwig.wayY--;
         }
         else if(hedwig.wayX < 0 && (hedwig.wayY == 0 || Math.abs(hedwig.wayX) > Math.abs(hedwig.wayY)))
         {
-            moveEagle("left");
+            hedwig.setPosX(hedwig.getPosX() - 1);
             hedwig.wayX++;
         }
         else if(hedwig.wayX > 0 && (hedwig.wayY == 0 || Math.abs(hedwig.wayX) > Math.abs(hedwig.wayY)))
         {
-            moveEagle("right");
+            hedwig.setPosX(hedwig.getPosX() + 1);
             hedwig.wayX--;
         }
         else if(!(hedwig.caughtSword))
@@ -261,17 +266,5 @@ public class Labyrinth{
             hedwig.wayY = hedwig.startY;
         }
         else {} //it means that it is awaiting for it's hero in the initial position
-    }
-
-    public void moveEagle(String direction)
-    {
-        if(direction.equals("up"))
-            hedwig.setPosY(hedwig.getPosY() - 1);
-        else if(direction.equals("down"))
-            hedwig.setPosY(hedwig.getPosY() + 1);
-        else if(direction.equals("right"))
-            hedwig.setPosX(hedwig.getPosX() + 1);
-        else if(direction.equals("left"))
-            hedwig.setPosX(hedwig.getPosX() - 1);
     }
 }

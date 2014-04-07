@@ -11,6 +11,11 @@ public abstract class GameObject{
         representation = '?';
     }
 
+    public GameObject(char rep)
+    {
+        representation = rep;
+    }
+
     public GameObject(char rep, int x, int y){
         posx = x;
         posy = y;
