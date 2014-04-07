@@ -67,16 +67,16 @@
       <file leaf-file-name="Dungeon.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Dungeon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="26" selection-start="5420" selection-end="5420" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+            <state line="64" column="40" selection-start="5298" selection-end="5298" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Labyrinth.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Labyrinth.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/maze/Labyrinth.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="54" selection-start="508" selection-end="508" vertical-scroll-proportion="0.0" vertical-offset="2754" max-vertical-offset="4675">
+            <state line="17" column="14" selection-start="363" selection-end="363" vertical-scroll-proportion="0.30318472" vertical-offset="0" max-vertical-offset="4726">
               <folding />
             </state>
           </provider>
@@ -85,19 +85,17 @@
       <file leaf-file-name="Generator.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/maze/Generator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="52" selection-start="3851" selection-end="3851" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="3842">
+            <state line="59" column="36" selection-start="1946" selection-end="1946" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3842">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MazeTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MazeTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/MazeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="33" selection-start="1613" selection-end="1613" vertical-scroll-proportion="0.6132265" vertical-offset="714" max-vertical-offset="3026">
-              <folding>
-                <element signature="e#823#831#0" expanded="true" />
-              </folding>
+            <state line="8" column="0" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="3111">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,7 +103,7 @@
       <file leaf-file-name="Eagle.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chars/Eagle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+            <state line="12" column="0" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="408">
               <folding />
             </state>
           </provider>
@@ -132,7 +130,7 @@
       <file leaf-file-name="GameObject.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chars/GameObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="21" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="850">
+            <state line="50" column="31" selection-start="922" selection-end="922" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
               <folding />
             </state>
           </provider>
@@ -150,7 +148,7 @@
       <file leaf-file-name="Dragon.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chars/Dragon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="5" selection-start="1518" selection-end="1518" vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="1564">
+            <state line="57" column="5" selection-start="1518" selection-end="1518" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1496">
               <folding />
             </state>
           </provider>
@@ -173,7 +171,6 @@
         <option value="$PROJECT_DIR$/src/Cell.java" />
         <option value="$PROJECT_DIR$/src/chars/Movable.java" />
         <option value="$PROJECT_DIR$/src/chars/Object.java" />
-        <option value="$PROJECT_DIR$/src/chars/GameObject.java" />
         <option value="$PROJECT_DIR$/src/chars/Sword.java" />
         <option value="$PROJECT_DIR$/src/chars/Hero.java" />
         <option value="$PROJECT_DIR$/src/chars/Dragon.java" />
@@ -181,9 +178,10 @@
         <option value="$PROJECT_DIR$/src/maze/Generator.java" />
         <option value="$PROJECT_DIR$/src/test/testMaze.java" />
         <option value="$PROJECT_DIR$/src/chars/Eagle.java" />
-        <option value="$PROJECT_DIR$/src/Dungeon.java" />
-        <option value="$PROJECT_DIR$/src/maze/Labyrinth.java" />
         <option value="$PROJECT_DIR$/src/test/MazeTest.java" />
+        <option value="$PROJECT_DIR$/src/Dungeon.java" />
+        <option value="$PROJECT_DIR$/src/chars/GameObject.java" />
+        <option value="$PROJECT_DIR$/src/maze/Labyrinth.java" />
       </list>
     </option>
   </component>
@@ -307,8 +305,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -403,6 +401,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -428,19 +439,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -534,19 +532,19 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3239645" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35265106" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35265106" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292232" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3239645" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -857,30 +855,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/maze/Cell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="17" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/chars/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="21" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/chars/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="34" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/chars/Dragon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="5" selection-start="1518" selection-end="1518" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="1496">
           <folding />
         </state>
       </provider>
@@ -899,33 +876,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/MazeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3026">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maze/Cell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="17" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Dungeon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="26" selection-start="5420" selection-end="5420" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+        <state line="64" column="40" selection-start="5298" selection-end="5298" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chars/Dragon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="5" selection-start="1518" selection-end="1518" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="1496">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chars/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="31" selection-start="922" selection-end="922" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/maze/Generator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="52" selection-start="3851" selection-end="3851" vertical-scroll-proportion="0.0" vertical-offset="2106" max-vertical-offset="4068">
+        <state line="59" column="36" selection-start="1946" selection-end="1946" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3842">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/maze/Labyrinth.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="54" selection-start="508" selection-end="508" vertical-scroll-proportion="0.0" vertical-offset="2295" max-vertical-offset="4675">
+        <state line="17" column="14" selection-start="363" selection-end="363" vertical-scroll-proportion="0.30318472" vertical-offset="0" max-vertical-offset="4726">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/MazeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="33" selection-start="1613" selection-end="1613" vertical-scroll-proportion="0.6132265" vertical-offset="714" max-vertical-offset="3026">
-          <folding>
-            <element signature="e#823#831#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

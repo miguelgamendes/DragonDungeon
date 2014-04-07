@@ -6,26 +6,26 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Labyrinth{
+    //game objects
     Hero heman = new Hero('H', 1, 1);
     Sword excalibur = new Sword('E', 1, 8);
     Dragon lizzy = new Dragon('D', 1, 3);
     Eagle hedwig = new Eagle('A', 1, 1);
+
+    //generator
     Generator gen = new Generator(10);
-    //Cell[][] map = new Cell[10][10];
+
+    //map aids
     char[][] drawMap = new char[10][10];
-    // TEST MAZE
     char[][] terrain;
-    /*char[][] map = {
-            {'X','X','X','X','X','X','X','X','X','X'},
-            {'X',' ',' ',' ',' ',' ',' ',' ',' ','X'},
-            {'X',' ','X','X',' ','X',' ','X',' ','X'},
-            {'X',' ','X','X',' ','X',' ','X',' ','X'},
-            {'X',' ','X','X',' ','X',' ','X',' ','X'},
-            {'X',' ',' ',' ',' ',' ',' ','X',' ','S'},
-            {'X',' ','X','X',' ','X',' ','X',' ','X'},
-            {'X',' ','X','X',' ','X',' ','X',' ','X'},
-            {'X',' ','X','X',' ',' ',' ',' ',' ','X'},
-            {'X','X','X','X','X','X','X','X','X','X'}};*/
+
+    public Labyrinth(){
+        //game parameters definition
+        initialParameters();
+
+        //generate map
+        generateRandomMap();
+    }
 
     public Hero getHero(){
         return heman;
@@ -37,9 +37,12 @@ public class Labyrinth{
 
     public void initialParameters(){
         String strategy;
+        int dragons;
         Scanner scan = new Scanner(System.in);
         System.out.println("Please choose dragon strategy (sleepy, random, sleepyrandom)");
         strategy = scan.nextLine();
+        System.out.print("Choose the number of dragons you'd like to face: ");
+        dragons = scan.nextInt();
     }
 
     public void generateDefaultMap(){
