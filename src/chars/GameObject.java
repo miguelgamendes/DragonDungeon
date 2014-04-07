@@ -49,6 +49,5 @@ public abstract class GameObject{
         Random rand = new Random();
         posx = rand.nextInt(n);
         posy = rand.nextInt(n);
-
     }
 }
