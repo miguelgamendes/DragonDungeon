@@ -14,4 +14,8 @@ public class Eagle extends GameObject {
     public Eagle() {
         super('A');
     }
+
+    public void kill() {
+        setRep(' ');
+    }
 }

@@ -151,11 +151,11 @@ public class Labyrinth{
 
     public void callEagle()
     {
-        findEagleWay();
         hedwig.setPosY(heman.getPosY());
         hedwig.setPosX(heman.getPosX());
         hedwig.startX = heman.getPosX();
         hedwig.startY = heman.getPosY();
+        findEagleWay();
         hedwig.called = true;
     }
 
@@ -264,12 +264,12 @@ public class Labyrinth{
     }
 
     public void moveEagle() {
-        if( hedwig.wayY < 0 && (hedwig.wayX == 0 || Math.abs(hedwig.wayX) < Math.abs(hedwig.wayY)))
+        if( hedwig.wayY < 0 && (hedwig.wayX == 0 || Math.abs(hedwig.wayX) <= Math.abs(hedwig.wayY)))
         {
             hedwig.setPosY(hedwig.getPosY() - 1);
             hedwig.wayY++;
         }
-        else if(hedwig.wayY > 0 && (hedwig.wayX == 0 || Math.abs(hedwig.wayX) < Math.abs(hedwig.wayY)))
+        else if(hedwig.wayY > 0 && (hedwig.wayX == 0 || Math.abs(hedwig.wayX) <= Math.abs(hedwig.wayY)))
         {
             hedwig.setPosY(hedwig.getPosY() + 1);
             hedwig.wayY--;
@@ -284,12 +284,18 @@ public class Labyrinth{
             hedwig.setPosX(hedwig.getPosX() + 1);
             hedwig.wayX--;
         }
-        else if(!(hedwig.caughtSword))
+        else if(!(hedwig.caughtSword) && excalibur.getPosX() == hedwig.getPosX() && excalibur.getPosY() == hedwig.getPosY())
         {
+
             hedwig.caughtSword = true;
-            hedwig.wayX = hedwig.startX;
-            hedwig.wayY = hedwig.startY;
+            excalibur.pickUp();
+            hedwig.wayX = hedwig.startX - hedwig.getPosX();
+            hedwig.wayY = hedwig.startY - hedwig.getPosY();
         }
-        else {} //it means that it is awaiting for it's hero in the initial position
+        else if(heman.getPosX() == hedwig.getPosX() && heman.getPosY() == hedwig.getPosY())
+        {
+            heman.arm();
+            hedwig.kill();
+        } //it means that it is awaiting for it's hero in the initial position
     }
 }

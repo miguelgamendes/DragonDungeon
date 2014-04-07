@@ -98,7 +98,7 @@ public class MazeTest {
             lab.checkConditions();
         }
 
-        assertFalse(lab.getDragon().isAlive());
+        assertFalse(lab.getDragon(0).isAlive());
 
     }
 
