@@ -1,6 +1,7 @@
 package maze;
 
 import chars.*;
+import gui.*;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -69,6 +70,9 @@ public class Labyrinth{
     public void gameCycle(Labyrinth lab){
         String choice;
         Scanner scan = new Scanner(System.in);
+
+        //main window gui
+        Window mainWindow = new Window();
 
         while(lab.checkEndConditions()){
             print();
