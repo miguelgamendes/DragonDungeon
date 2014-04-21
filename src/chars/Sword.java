@@ -3,6 +3,10 @@ package chars;
 public class Sword extends GameObject{
     boolean pickedUp = false;
 
+    public Sword(){
+        super();
+    }
+
     /**
      * Creates a Sword, with the given representation, in the given position (x,y)
      *

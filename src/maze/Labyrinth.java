@@ -37,7 +37,7 @@ public class Labyrinth{
 
     //game objects
     Hero heman = new Hero('H', 1, 1);
-    Sword excalibur = new Sword('E', 1, 8);
+    Sword excalibur = new Sword();
     Eagle hedwig = new Eagle();
     Vector<Dragon> lizzy = new Vector<Dragon>();//new Dragon('D', 1, 3);
 
@@ -49,6 +49,8 @@ public class Labyrinth{
         //game parameters definition
         initialParameters();
 
+        drawMap = new char[mapSize][mapSize];
+
         //generate map
         generateRandomMap();
 
@@ -58,6 +60,11 @@ public class Labyrinth{
             while(terrain[lizzy.get(i).getPosY()][lizzy.get(i).getPosX()] == 'X' || terrain[lizzy.get(i).getPosY()][lizzy.get(i).getPosX()] == 'S')
                 lizzy.get(i).setRandomPos(mapSize);
         }
+
+        //generate sword
+        do{
+            excalibur.setRandomPos(mapSize);
+        }while(terrain[excalibur.getPosY()][excalibur.getPosX()] == 'X' || terrain[excalibur.getPosY()][excalibur.getPosX()] == 'S');
     }
 
     public Hero getHero(){
@@ -72,7 +79,8 @@ public class Labyrinth{
         Scanner scan = new Scanner(System.in);
         System.out.print("How big do you like your maps? : ");
         mapSize = scan.nextInt();
-        System.out.println("Please choose dragon strategy (sleepy, random, sleepyrandom)");
+        System.out.print("Please choose dragon strategy (sleepy, random, sleepyrandom)");
+        strategy = scan.nextLine();
         strategy = scan.nextLine();
         System.out.print("Choose the number of dragons you'd like to face: ");
         dragonNumber = scan.nextInt();
@@ -92,6 +100,8 @@ public class Labyrinth{
         String choice;
         Scanner scan = new Scanner(System.in);
 
+        print();
+
         //main window gui
         initializeWindow();
 
@@ -109,7 +119,7 @@ public class Labyrinth{
 
     public void print(){
         //create terrain
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < mapSize; i++){
             drawMap[i] = terrain[i].clone();
         }
         //overlay game objects
@@ -122,8 +132,8 @@ public class Labyrinth{
         drawMap[heman.getPosY()][heman.getPosX()] = heman.getRep();
 
         //draw map
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
+        for(int i = 0; i < mapSize; i++){
+            for(int j = 0; j < mapSize; j++){
                 System.out.print(drawMap[i][j]);
             }
             System.out.println();
@@ -252,8 +262,8 @@ public class Labyrinth{
     public boolean checkExit(){
         int exitx = -1;
         int exity = -1;
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
+        for(int i = 0; i < mapSize; i++){
+            for(int j = 0; j < mapSize; j++){
                 if(terrain[i][j] == 'S'){
                     exitx = j;
                     exity = i;
@@ -345,14 +355,47 @@ public class Labyrinth{
         mainPanel = new JPanel(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         gamePanel = new JPanel(new GridLayout(mapSize,mapSize));
         buttonPanel = new JPanel();
-        image = new ImageIcon[3];
+        image = new ImageIcon[7];
         label = new JLabel[mapSize][mapSize];
 
         image[0] = new ImageIcon("brick.png");
+        image[1] = new ImageIcon("hero.png");
+        image[2] = new ImageIcon("dragon.png");
+        image[3] = new ImageIcon("floor.png");
+        image[4] = new ImageIcon("exit.png");
+        image[5] = new ImageIcon("sword.png");
+        image[6] = new ImageIcon("armedhero.png");
+        image[7] = new ImageIcon("eagle.png");
 
         for(int i = 0; i < mapSize; i++){
             for(int j = 0; j < mapSize; j++){
-                label[i][j] = new JLabel(image[0]);
+                switch(drawMap[i][j]){
+                    case 'X':
+                        label[i][j] = new JLabel(image[0]);
+                        break;
+                    case ' ':
+                        label[i][j] = new JLabel(image[3]);
+                        break;
+                    case 'H':
+                        label[i][j] = new JLabel(image[1]);
+                        break;
+                    case 'D':
+                    case 'd':
+                        label[i][j] = new JLabel(image[2]);
+                        break;
+                    case 'S':
+                        label[i][j] = new JLabel(image[4]);
+                        break;
+                    case 'E':
+                        label[i][j] = new JLabel(image[5]);
+                        break;
+                    case 'A':
+                        label[i][j] = new JLabel(image[6]);
+                        break;
+                    default:
+                        label[i][j] = new JLabel(image[0]);
+                        break;
+                }
             }
         }
 
