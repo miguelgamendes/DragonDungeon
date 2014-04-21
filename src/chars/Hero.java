@@ -27,14 +27,25 @@ public class Hero extends GameObject{
         return armed;
     }
 
+    /**
+     * Arms the Hero.
+     */
     public void arm(){
         armed = true;
     }
 
+    /**
+     * Returns whether the Hero is alive or not.
+     *
+     * @return Returns whether the Hero is alive or not
+     */
     public boolean isAlive() {
         return alive;
     }
 
+    /**
+     * Kills the Hero.
+     */
     public void kill() {
         alive = false;
     }

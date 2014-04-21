@@ -10,10 +10,20 @@ public class Generator{
     int exitx;
     int exity;
 
+    /**
+     * Creates a Generator that will create the map
+     *
+     * @param s The size of the map the Generator will generate
+     */
     public Generator(int s){
         side = s;
     }
 
+    /**
+     * Creates a Default Map
+     *
+     * @return Returns the Default Map created
+     */
     public char[][] generateDefault(){
         map = new char[][]{
                 {'X','X','X','X','X','X','X','X','X','X'},
@@ -29,6 +39,11 @@ public class Generator{
         return map;
     }
 
+    /**
+     * Generates a random map to be played
+     *
+     * @return Returns a randomly generated map
+     */
     public char[][] generateRandomizedDFS(){
         map = new char[side][side];
         generateInnerWalls();
@@ -39,7 +54,9 @@ public class Generator{
         return map;
     }
 
-    //creates a map with enclosed outer and inner walls of predetermined size
+    /**
+     * Generates the Inner Walls of the map that is under construction.
+     */
     public void generateInnerWalls(){
         for(int i = 0; i < map.length; i++)
             for(int j = 0; j < map[i].length; j++){
@@ -51,7 +68,9 @@ public class Generator{
         System.out.println("Generated inner walls");
     }
 
-    //generates an exit in a pre-created map
+    /**
+     * Generates the Exit in a random position in the outer walls of the map.
+     */
     public void generateExit(){
         Random rand = new Random();
         //exit on horizontal or vertical wall -> 0 = horizontal
@@ -92,7 +111,9 @@ public class Generator{
         System.out.println("Exit on: " + exitPlacement);
     }
 
-    //generates a table in which a '0' is an unvisited space, '1' is a visited space and '2' is a wall
+    /**
+     * Generates a completely unvisited visit table.
+     */
     public void generateVisitTable(){
         visitTable = new int[side][side];
         for(int i = 0; i <= side - 1; i++)
@@ -104,6 +125,9 @@ public class Generator{
         System.out.println("Generated visit table");
     }
 
+    /**
+     * Prints the current visit table.
+     */
     public void printVisitTable(){
         for(int i = 0; i <= side - 1; i++){
             for(int j = 0; j <= side - 1; j++){
@@ -115,7 +139,9 @@ public class Generator{
         }
     }
 
-    //finalized the map through a depth first search
+    /**
+     * Uses the depthFirstSearch to generate a random map.
+     */
     public void depthFirstSearch(){
         System.out.println("Entering depth first search...");
         if(exitPlacement.equals("top")){
@@ -141,6 +167,12 @@ public class Generator{
         System.out.println("Depth first search complete.");
     }
 
+    /**
+     * Searches for the adjacent cells of the current cell.
+     *
+     * @param x The x coordinate of the current cell
+     * @param y The y coordinate of the current cell
+     */
     public void recSearch(int x, int y){
         System.out.println("Reccing on cell - (" + x + ", " + y + ")");
         visitTable[y][x] = 1;
@@ -189,7 +221,11 @@ public class Generator{
         System.out.println("Done reccing on cell - (" + x + ", " + y + ")");
     }
 
-    //returns true once all cells around the specified cell have been visited
+    /**
+     * Returns true once all cells around the specified cell have been visited
+     *
+     * @return Returns true once all cells around the specified cell have been visited
+     */
     public boolean neighborsVisited(int x, int y){
         if(x == 1){
             if(y == 1)

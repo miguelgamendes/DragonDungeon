@@ -11,10 +11,16 @@ public class Eagle extends GameObject {
     public int startY;
     public boolean caughtSword = false;
 
+    /**
+     * Creates the Eagle with the rep being 'A'.
+     */
     public Eagle() {
         super('A');
     }
 
+    /**
+     * Kills the Eagle, after the Hero gets the Sword the Eagle had.
+     */
     public void kill() {
         setRep(' ');
     }
