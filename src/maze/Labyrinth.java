@@ -37,7 +37,7 @@ public class Labyrinth{
 
     //game objects
     Hero heman = new Hero('H', 1, 1);
-    Sword excalibur = new Sword();
+    Sword excalibur = new Sword('E');
     Eagle hedwig = new Eagle();
     Vector<Dragon> lizzy = new Vector<Dragon>();//new Dragon('D', 1, 3);
 
@@ -100,7 +100,7 @@ public class Labyrinth{
         String choice;
         Scanner scan = new Scanner(System.in);
 
-        print();
+        overlay();
 
         //main window gui
         initializeWindow();
@@ -117,7 +117,7 @@ public class Labyrinth{
         }
     }
 
-    public void print(){
+    public void overlay(){
         //create terrain
         for(int i = 0; i < mapSize; i++){
             drawMap[i] = terrain[i].clone();
@@ -130,7 +130,9 @@ public class Labyrinth{
             drawMap[lizzy.get(i).getPosY()][lizzy.get(i).getPosX()] = lizzy.get(i).getRep();
         drawMap[excalibur.getPosY()][excalibur.getPosX()] = excalibur.getRep();
         drawMap[heman.getPosY()][heman.getPosX()] = heman.getRep();
+    }
 
+    public void print(){
         //draw map
         for(int i = 0; i < mapSize; i++){
             for(int j = 0; j < mapSize; j++){
@@ -355,7 +357,7 @@ public class Labyrinth{
         mainPanel = new JPanel(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         gamePanel = new JPanel(new GridLayout(mapSize,mapSize));
         buttonPanel = new JPanel();
-        image = new ImageIcon[7];
+        image = new ImageIcon[8];
         label = new JLabel[mapSize][mapSize];
 
         image[0] = new ImageIcon("brick.png");
@@ -433,11 +435,13 @@ public class Labyrinth{
 
             @Override
             public void keyReleased(KeyEvent e) {
+                overlay();
                 moveHero(e.getKeyChar());
                 moveDragons();
                 if(hedwig.called)
                     moveEagle();
                 checkConditions();
+                updateGUIMap();
             }
         });
         gamePanel.setFocusable(true);
@@ -446,5 +450,42 @@ public class Labyrinth{
         //adjust and show window
         frame.pack();
         frame.setVisible(true);
+        frame.setResizable(false);
+    }
+
+    public void updateGUIMap(){
+        for(int i = 0; i < mapSize; i++){
+            for(int j = 0; j < mapSize; j++){
+                switch(drawMap[i][j]){
+                    case 'X':
+                        label[i][j].setIcon(image[0]);
+                        break;
+                    case ' ':
+                        label[i][j].setIcon(image[3]);
+                        break;
+                    case 'H':
+                        label[i][j].setIcon(image[1]);
+                        break;
+                    case 'D':
+                    case 'd':
+                        label[i][j].setIcon(image[2]);
+                        break;
+                    case 'S':
+                        label[i][j].setIcon(image[4]);
+                        break;
+                    case 'E':
+                        label[i][j].setIcon(image[5]);
+                        break;
+                    case 'A':
+                        label[i][j].setIcon(image[6]);
+                        break;
+                    default:
+                        label[i][j].setIcon(image[0]);
+                        break;
+                }
+            }
+        }
+        frame.revalidate();
+        frame.repaint();
     }
 }

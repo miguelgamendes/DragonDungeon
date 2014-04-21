@@ -3,8 +3,8 @@ package chars;
 public class Sword extends GameObject{
     boolean pickedUp = false;
 
-    public Sword(){
-        super();
+    public Sword(char rep){
+        super(rep);
     }
 
     /**
