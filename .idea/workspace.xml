@@ -73,21 +73,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Window.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Window.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="21" selection-start="1087" selection-end="1087" vertical-scroll-proportion="0.69074494" vertical-offset="357" max-vertical-offset="1632">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="85" column="5" selection-start="109" selection-end="2234" vertical-scroll-proportion="0.0" vertical-offset="1121" max-vertical-offset="1632">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Labyrinth.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Labyrinth.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/maze/Labyrinth.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="5236">
+            <state line="350" column="46" selection-start="12421" selection-end="12421" vertical-scroll-proportion="0.46275395" vertical-offset="5711" max-vertical-offset="6970">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -143,7 +141,7 @@
       <file leaf-file-name="Hero.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chars/Hero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
+            <state line="32" column="32" selection-start="965" selection-end="965" vertical-scroll-proportion="0.0" vertical-offset="169" max-vertical-offset="1088">
               <folding />
             </state>
           </provider>
@@ -181,12 +179,12 @@
         <option value="$PROJECT_DIR$/src/chars/Dragon.java" />
         <option value="$PROJECT_DIR$/src/chars/Eagle.java" />
         <option value="$PROJECT_DIR$/src/chars/GameObject.java" />
-        <option value="$PROJECT_DIR$/src/chars/Hero.java" />
         <option value="$PROJECT_DIR$/src/chars/Sword.java" />
         <option value="$PROJECT_DIR$/src/maze/Generator.java" />
         <option value="$PROJECT_DIR$/src/Dungeon.java" />
-        <option value="$PROJECT_DIR$/src/maze/Labyrinth.java" />
         <option value="$PROJECT_DIR$/src/gui/Window.java" />
+        <option value="$PROJECT_DIR$/src/chars/Hero.java" />
+        <option value="$PROJECT_DIR$/src/maze/Labyrinth.java" />
       </list>
     </option>
   </component>
@@ -915,13 +913,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/chars/Hero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/chars/Sword.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -943,12 +934,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/maze/Labyrinth.java">
+    <entry file="file://$PROJECT_DIR$/src/test/MazeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="5236">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="3026">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="5" selection-start="109" selection-end="2234" vertical-scroll-proportion="0.0" vertical-offset="1121" max-vertical-offset="1632">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chars/Hero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="32" selection-start="965" selection-end="965" vertical-scroll-proportion="0.0" vertical-offset="169" max-vertical-offset="1088">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -959,16 +962,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/MazeTest.java">
+    <entry file="file://$PROJECT_DIR$/src/maze/Labyrinth.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="3026">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="21" selection-start="1087" selection-end="1087" vertical-scroll-proportion="0.69074494" vertical-offset="357" max-vertical-offset="1632">
+        <state line="350" column="46" selection-start="12421" selection-end="12421" vertical-scroll-proportion="0.46275395" vertical-offset="5711" max-vertical-offset="6970">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

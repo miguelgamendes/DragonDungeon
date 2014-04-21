@@ -1,13 +1,35 @@
 package maze;
 
 import chars.*;
-import gui.*;
+//import gui.*;
 
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Vector;
 
+//gui imports
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
 public class Labyrinth{
+    //gui elements
+    private JFrame frame;
+    private JPanel mainPanel;
+    private JPanel gamePanel;
+    private JPanel buttonPanel;
+    private JButton exitButton;
+    private JButton gameButton;
+    private JLabel[][] label;
+    private ImageIcon[] image;
+
+    private class ExitListener implements ActionListener{
+        public void actionPerformed(ActionEvent arg0){
+            frame.setVisible(false);
+            System.exit(0);
+        }
+    }
+
     //game settings
     int mapSize;
     String strategy;
@@ -18,9 +40,6 @@ public class Labyrinth{
     Sword excalibur = new Sword('E', 1, 8);
     Eagle hedwig = new Eagle();
     Vector<Dragon> lizzy = new Vector<Dragon>();//new Dragon('D', 1, 3);
-
-    //generator
-    Generator gen = new Generator(10);
 
     //map aids
     char[][] drawMap = new char[10][10];
@@ -60,10 +79,12 @@ public class Labyrinth{
     }
 
     public void generateDefaultMap(){
+        Generator gen = new Generator(mapSize);
         terrain = gen.generateDefault();
     }
 
     public void generateRandomMap(){
+        Generator gen = new Generator(mapSize);
         terrain = gen.generateRandomizedDFS();
     }
 
@@ -72,7 +93,7 @@ public class Labyrinth{
         Scanner scan = new Scanner(System.in);
 
         //main window gui
-        Window mainWindow = new Window();
+        initializeWindow();
 
         while(lab.checkEndConditions()){
             print();
@@ -121,6 +142,21 @@ public class Labyrinth{
             heman.move(direction);
         else if(direction.equals("eagle"))
             callEagle();
+        else
+            System.out.println("Command not found/Unpassable block!");
+    }
+
+    public void moveHero(char direction){
+        if(direction == 'w' && checkPassable(heman.getPosX(), heman.getPosY() - 1))
+            heman.move(direction);
+        else if(direction == 's' && checkPassable(heman.getPosX(), heman.getPosY() + 1))
+            heman.move(direction);
+        else if(direction == 'a' && checkPassable(heman.getPosX() - 1, heman.getPosY()))
+            heman.move(direction);
+        else if(direction == 'd' && checkPassable(heman.getPosX() + 1, heman.getPosY()))
+            heman.move(direction);
+        //else if(direction.equals("eagle"))
+        //    callEagle();
         else
             System.out.println("Command not found/Unpassable block!");
     }
@@ -301,5 +337,71 @@ public class Labyrinth{
             heman.arm();
             hedwig.kill();
         } //it means that it is awaiting for it's hero in the initial position
+    }
+
+    public void initializeWindow(){
+        //gui stuff
+        frame = new JFrame("Game GUI should minimally work");
+        mainPanel = new JPanel(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        gamePanel = new JPanel(new GridLayout(mapSize,mapSize));
+        buttonPanel = new JPanel();
+        image = new ImageIcon[3];
+        label = new JLabel[mapSize][mapSize];
+
+        image[0] = new ImageIcon("brick.png");
+
+        for(int i = 0; i < mapSize; i++){
+            for(int j = 0; j < mapSize; j++){
+                label[i][j] = new JLabel(image[0]);
+            }
+        }
+
+        //exit button
+        exitButton = new JButton("Exit");
+        exitButton.addActionListener(new ExitListener());
+
+        //new game button
+        gameButton = new JButton("New Game");
+
+        for(int i = 0; i < mapSize; i++){
+            for(int j = 0; j < mapSize; j++){
+                gamePanel.add(label[i][j]);
+            }
+        }
+
+        //buttonPanel.add(gameButton);
+        //buttonPanel.add(exitButton);
+
+        //mainPanel.add(gamePanel);
+        //mainPanel.add(buttonPanel);
+
+        frame.add(gamePanel);
+
+        gamePanel.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                moveHero(e.getKeyChar());
+                moveDragons();
+                if(hedwig.called)
+                    moveEagle();
+                checkConditions();
+            }
+        });
+        gamePanel.setFocusable(true);
+        gamePanel.requestFocusInWindow();
+
+        //adjust and show window
+        frame.pack();
+        frame.setVisible(true);
     }
 }

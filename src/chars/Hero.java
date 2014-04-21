@@ -23,6 +23,17 @@ public class Hero extends GameObject{
             super.setPosX(super.getPosX() - 1);
     }
 
+    public void move(char direction){
+        if(direction == 'w')
+            super.setPosY(super.getPosY() - 1);
+        else if(direction == 's')
+            super.setPosY(super.getPosY() + 1);
+        else if(direction == 'd')
+            super.setPosX(getPosX() + 1);
+        else if(direction == 'a')
+            super.setPosX(super.getPosX() - 1);
+    }
+
     public boolean isArmed(){
         return armed;
     }
